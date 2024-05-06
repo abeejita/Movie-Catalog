@@ -7,7 +7,7 @@
 }
 
 .red-color-button {
-  @apply text-black bg-red-500 border-red-800 p-2 text-sm font-bold leading-3 mb-2 ml-4 rounded-md inline-block;
+  @apply text-white bg-red-500 border-red-800 p-2 text-sm font-bold leading-3 mb-2 ml-4 rounded-md inline-block;
 }
 
 .show-svg {

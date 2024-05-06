@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useLocation, useParams, useNavigate} from "react-router-dom";
-import {getDetails} from "../../services/movies";
+import {getDetails, getRecommendations} from "../../services/movies";
 import {IDetailsResponse, IMovieResponse} from "../../services/movies/types";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import './Show.css';
@@ -15,12 +15,27 @@ const Show: React.FC = () => {
     const [details, setDetails] = useState<IDetailsResponse[]>([]);
     const [loading, setLoading] = useState(false);
     const [recommendedMovies, setRecommendedMovies] = useState<IMovieResponse[]>([]);
+    const [errorMovies, setErrorMovies] = useState<boolean>(false);
 
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const [favorites, setFavorites] = useState<string>("");
 
     const goBack = () => {
         navigate(-1);
+    };
+
+    const getRecommendationMovies = async (id: number | undefined) => {
+        await getRecommendations(id)
+            .then((res) => {
+                if (res && res.data) {
+                    console.log(res.data.results, "res");
+                    setRecommendedMovies(res.data.results);
+                }
+            })
+            .catch((err) => {
+                setErrorMovies(true);
+            });
+        setLoading(false);
     };
 
     const addFavorite = () => {
@@ -63,6 +78,7 @@ const Show: React.FC = () => {
         }
         setLoading(true);
         getMovieDetails(Number(id));
+        getRecommendationMovies(Number(id));
     }, [id]);
 
     // use effects
@@ -192,6 +208,25 @@ const Show: React.FC = () => {
                     <div className="show-row">
                         <div className="show-recommendations">
                             RECOMMENDATIONS
+                        </div>
+                    </div>
+                    <div className="show-row">
+                        <div className="movies">
+                            {loading && <div> Loading...</div>}
+                            {errorMovies && <div> Error...</div>}
+                            {recommendedMovies?.length > 0 &&
+                                recommendedMovies.map((movie) => (
+                                    <div className="individual-movie" key={movie.id}>
+                                        <MovieCard
+                                            key={movie.id}
+                                            movieId={movie.id}
+                                            posterPath={movie.poster_path}
+                                            title={movie.title}
+                                            voteAverage={movie.vote_average}
+                                            genreId={movie.genre_ids[0]}
+                                        />
+                                    </div>
+                                ))}
                         </div>
                     </div>
                 </div>

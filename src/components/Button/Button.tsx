@@ -26,7 +26,7 @@ const Button: React.FC<IButton> = ({
     }
 
     return (
-        <button className={buttonClass}>
+        <button className={buttonClass} onClick={onClick}>
         <span>
           {icon && ( // Conditional rendering based on the icon prop
               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon={svg}

@@ -26,6 +26,16 @@ const meta = {
       control: {
         type: 'text',
       }
+    },
+    icon: {
+      control: {
+        type: 'boolean',
+      },
+      svg: {
+        control: {
+          type: 'string',
+        }
+      }
     }
   },
   tags: ["autodocs"],
@@ -36,10 +46,12 @@ export default meta;
 const Template: StoryFn<IButton> = (args) => <Button {...args} />;
 
 /**
- * A default moviecard wit all the props.
+ * A default button with all the props.
  */
 export const Default = Template.bind({});
 Default.args = {
-  title: 'John Wick Chapter 4',
+  title: 'Add to Favorites',
   color: 'blue',
+  icon: true,
+  svg: 'heart'
 };

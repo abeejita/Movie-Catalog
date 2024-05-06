@@ -1,0 +1,7 @@
+.favorites-title {
+    @apply text-3xl font-semibold text-left mb-5;
+}
+
+.favorites-container {
+    @apply p-6;
+}

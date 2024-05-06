@@ -59,5 +59,13 @@
 }
 
 .show-recommendations {
-    @apply text-3xl font-semibold text-left ml-5 mt-5;
+    @apply text-3xl font-semibold text-left ml-5 mt-5 mb-5;
+}
+
+.movies {
+    @apply relative leading-6 flex overflow-x-auto snap-mandatory snap-x mx-6;
+}
+
+.individual-movie {
+    @apply flex-none snap-start w-1/5;
 }
