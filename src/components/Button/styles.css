@@ -6,6 +6,10 @@
   @apply text-black bg-gray-200 border-gray-500 p-2 text-sm font-bold leading-3 mb-2 ml-4 rounded-md inline-block;
 }
 
+.red-color-button {
+  @apply text-black bg-red-500 border-red-800 p-2 text-sm font-bold leading-3 mb-2 ml-4 rounded-md inline-block;
+}
+
 .show-svg {
   @apply inline-block w-4 mr-2;
 }

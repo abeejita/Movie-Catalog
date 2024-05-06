@@ -1,4 +1,4 @@
-import {Home, Playing, Popular, Rated} from '../pages';
+import {Favorites, Home, Playing, Popular, Rated} from '../pages';
 import {RouteObject, createBrowserRouter} from "react-router-dom";
 
 import PrivateRouter from './privateRouter';
@@ -15,6 +15,7 @@ const routes: RouteObject[] = [
             {path: `${ROUTES.SHOW}:id`, element: <Show/>},
             {path: ROUTES.RATED, element: <Rated/>},
             {path: ROUTES.PLAYING, element: <Playing/>},
+            {path: ROUTES.FAVORITES, element: <Favorites/>}
         ]
     },
     {

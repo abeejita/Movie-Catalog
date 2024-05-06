@@ -1,6 +1,7 @@
 export interface IButton {
   onClick: () => void;
-  color: 'blue' | 'gray';
+  color: 'blue' | 'gray' | 'red';
   title: string;
   icon?: boolean;
+  svg?: string;
   }
