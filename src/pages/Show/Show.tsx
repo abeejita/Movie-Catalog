@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useLocation, useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import {getDetails, getRecommendations} from "../../services/movies";
 import {IDetailsResponse, IMovieResponse} from "../../services/movies/types";
 import MovieCard from "../../components/MovieCard/MovieCard";
@@ -10,7 +10,6 @@ import {Button} from "../../components/Button";
 const Show: React.FC = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const location = useLocation();
     const [errorDetails, setErrorDetails] = useState<boolean>(false);
     const [details, setDetails] = useState<IDetailsResponse[]>([]);
     const [loading, setLoading] = useState(false);
