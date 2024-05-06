@@ -57,3 +57,7 @@
 .show-block-text {
     @apply text-xl font-bold mb-2;
 }
+
+.show-recommendations {
+    @apply text-3xl font-semibold text-left ml-5 mt-5;
+}

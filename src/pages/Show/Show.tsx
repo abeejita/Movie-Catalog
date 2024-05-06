@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useLocation, useParams, useNavigate} from "react-router-dom";
 import {getDetails} from "../../services/movies";
-import {IDetailsResponse} from "../../services/movies/types";
+import {IDetailsResponse, IMovieResponse} from "../../services/movies/types";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import './Show.css';
 import Pill from "../../components/Pill/Pill";
@@ -14,6 +14,7 @@ const Show: React.FC = () => {
     const [errorDetails, setErrorDetails] = useState<boolean>(false);
     const [details, setDetails] = useState<IDetailsResponse[]>([]);
     const [loading, setLoading] = useState(false);
+    const [recommendedMovies, setRecommendedMovies] = useState<IMovieResponse[]>([]);
 
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const [favorites, setFavorites] = useState<string>("");
@@ -186,6 +187,11 @@ const Show: React.FC = () => {
                                         )}
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div className="show-row">
+                        <div className="show-recommendations">
+                            RECOMMENDATIONS
                         </div>
                     </div>
                 </div>
